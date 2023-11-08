@@ -44,6 +44,21 @@ timer(seconds)
 printTask(expression)
 printCounter(counter)
 
+function alert(){
+    let alertCheck = confirm('Твой счет : ' + count +'. Хочешь попробовать ещё?')
+    if (alertCheck) {
+        getAll()
+        printTask(expression)
+        printCounter()
+        document.getElementById('inputAnswer').value=''
+        clearInterval(countdown)
+    }
+    else {
+        window.close()
+    }
+
+    
+}
 function examination(inputAnswer, trueSolution) {
     const userAnswer = Number(inputAnswer.value)
 
@@ -56,13 +71,9 @@ function examination(inputAnswer, trueSolution) {
         return timer(seconds)
         }
     else {
-        alert ('Твой счет : ' + count)
-        count = 0
-        getAll()
-        printTask(expression)
-        printCounter()
-        document.getElementById('inputAnswer').value=''
+        alert()
         return timer(seconds)
+
     }
 }
 
@@ -81,15 +92,9 @@ function timer(seconds) {
   countdown = setInterval(() => {
     const secondsLeft = Math.round((endTime - Date.now()) / 1000)
     if(secondsLeft < 0) {
-      alert ('Твой счет : ' + count)
-      getAll()
-      printTask(expression)
-      printCounter()
-      document.getElementById('inputAnswer').value=''
-      clearInterval(countdown)
-      return timer(seconds)
+        alert()
+        return timer(seconds)
 
-      
     }
     displayTimer(secondsLeft);
   }, 1000);
@@ -98,7 +103,7 @@ function timer(seconds) {
 function displayTimer(seconds) {
   const remainderSeconds = seconds % 60
   const display = `${remainderSeconds}`
-  document.title = display
+//   document.title = display
   timerDisplay.textContent = display
 }
 
