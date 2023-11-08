@@ -4,16 +4,15 @@ const exam = document.getElementById('exam')
 const task = document.getElementById('task')
 const counter = document.getElementById('count')
 let countdown
-const timerDisplay = document.querySelector('.timer_display-left')
 let seconds = 10
+let count = 0
+const timerDisplay = document.querySelector('.timer_display-left')
 document.addEventListener ('keyup', event => {
     if(event.code === 'Enter' ) {
         const ex = examination(inputAnswer, result)
     return ex
     }
 })
-let count = 0
-
 
 function getRandomnumber(min, max) {
     return Math.random() * (max - min) + min
@@ -25,6 +24,7 @@ function getAll(){
     randomActionIndex = Math.floor(Math.random() * 2)
     expression = randomTask(num1,num2, actions[randomActionIndex])
     result = (randomActionIndex === 0) ? num1 + num2 : num1 - num2
+    console.log(result)
 }
 
 getAll()
@@ -40,10 +40,10 @@ function printTask (expression) {
 function printCounter() {
     counter.textContent = count
 }
+
 timer(seconds)
 printTask(expression)
 printCounter(counter)
-
 function alert(){
     let alertCheck = confirm('Твой счет : ' + '[' + count + ']' + '   Хочешь попробовать ещё?')
     if (alertCheck) {
