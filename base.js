@@ -24,7 +24,6 @@ function getAll(){
     randomActionIndex = Math.floor(Math.random() * 2)
     expression = randomTask(num1,num2, actions[randomActionIndex])
     result = (randomActionIndex === 0) ? num1 + num2 : num1 - num2
-    console.log(result)
 }
 
 getAll()
@@ -81,7 +80,6 @@ function examination(inputAnswer, trueSolution) {
         printTask(expression)
         printCounter()
         document.getElementById('inputAnswer').value=''
-        console.log(result)
         hard_timer()
         return timer(seconds)
         }
