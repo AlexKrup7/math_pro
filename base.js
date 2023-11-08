@@ -19,8 +19,8 @@ function getRandomnumber(min, max) {
   }
 
 function getAll(){
-    num1 = Math.trunc(getRandomnumber(1, 100))
-    num2 = Math.trunc(getRandomnumber(1, 100))
+    num1 = Math.trunc(getRandomnumber(1, 50))
+    num2 = Math.trunc(getRandomnumber(1, 50))
     randomActionIndex = Math.floor(Math.random() * 2)
     expression = randomTask(num1,num2, actions[randomActionIndex])
     result = (randomActionIndex === 0) ? num1 + num2 : num1 - num2
@@ -29,6 +29,17 @@ function getAll(){
 
 getAll()
 
+function hard_timer() {
+    if(count <= 5) {
+        seconds = 20
+    }if(count > 5 && count <= 10){
+        seconds = 15
+    }if(count >10 && count <= 15) {
+        seconds = 10
+    }if(count > 15) {
+        seconds = 5
+    }
+}
 function randomTask(num1, num2, action) {
     return num1 + action + num2
 }
@@ -40,7 +51,7 @@ function printTask (expression) {
 function printCounter() {
     counter.textContent = count
 }
-
+hard_timer()
 timer(seconds)
 printTask(expression)
 printCounter(counter)
@@ -48,6 +59,7 @@ function alert(){
     let alertCheck = confirm('Твой счет : ' + '[' + count + ']' + '   Хочешь попробовать ещё?')
     if (alertCheck) {
         count = 0
+        hard_timer()
         getAll()
         printTask(expression)
         printCounter()
@@ -69,6 +81,8 @@ function examination(inputAnswer, trueSolution) {
         printTask(expression)
         printCounter()
         document.getElementById('inputAnswer').value=''
+        console.log(result)
+        hard_timer()
         return timer(seconds)
         }
     else {
