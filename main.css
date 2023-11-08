@@ -167,3 +167,27 @@ input[type=number]::-webkit-outer-spin-button {
   height: 100%;
   width: 100%;
 }
+
+.timer {
+  display: flex;
+  min-height: 100vh;
+}
+
+.timer_display {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.timer_display-left {
+  margin-top: 20px;
+  font-size: 30px;
+  color: white;
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+}
+
+.timer_display-end {
+  font-size: 30px;
+  color: white;
