@@ -45,8 +45,9 @@ printTask(expression)
 printCounter(counter)
 
 function alert(){
-    let alertCheck = confirm('Твой счет : ' + count +'. Хочешь попробовать ещё?')
+    let alertCheck = confirm('Твой счет : ' + '[' + count + ']' + '   Хочешь попробовать ещё?')
     if (alertCheck) {
+        count = 0
         getAll()
         printTask(expression)
         printCounter()
